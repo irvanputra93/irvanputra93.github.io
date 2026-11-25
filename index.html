@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Irvan Saputra — Web Developer & Mahasiswa Sistem Informasi</title>
-  <meta name="description" content="Irvan Saputra, mahasiswa S1 Sistem Informasi UTDI yang berfokus pada pengembangan web dengan Laravel, PHP, dan MySQL serta perancangan sistem informasi.">
+  <meta name="description" content="Irvan Saputra, Mahasiswa S1 Sistem Informasi yang membangun aplikasi web dan mobile, mengolah data, serta merancang alur sistem. Antusias mengeksplorasi teknologi dan alur sistem baru, serta siap berkontribusi untuk posisi magang maupun kesempatan kerja..">
   <meta name="theme-color" content="#0b1220">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,16 +31,12 @@
     ::selection { background: rgba(34, 211, 238, .25); color: #fff; }
     :focus-visible { outline: 2px solid #22d3ee; outline-offset: 3px; border-radius: 8px; }
 
-    /* Navbar: kaca makin pekat setelah di-scroll */
     .site-header { background: rgba(11, 18, 32, .55); transition: background .4s var(--ease), border-color .4s var(--ease), box-shadow .4s var(--ease); }
     .site-header.scrolled { background: rgba(11, 18, 32, .82); border-color: rgba(148, 163, 184, .12); box-shadow: 0 10px 30px -18px rgba(0, 0, 0, .8); }
-
-    /* Menu mobile dengan transisi tinggi yang halus */
     .mobile-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .35s var(--ease); }
     .mobile-panel.open { grid-template-rows: 1fr; }
     .mobile-panel > div { overflow: hidden; }
 
-    /* Hero: glow berlapis yang lembut */
     .hero-glow {
       background:
         radial-gradient(55% 45% at 12% -5%, rgba(34, 211, 238, .13), transparent 72%),
@@ -56,19 +52,16 @@
       mask-image: radial-gradient(ellipse 70% 60% at 30% 10%, #000 10%, transparent 75%);
     }
     .hero-fade { background: linear-gradient(to bottom, transparent, #0b1220); }
-
     .name-gradient {
       background: linear-gradient(100deg, #f8fafc 15%, #bae6fd 50%, #22d3ee 100%);
       -webkit-background-clip: text; background-clip: text;
       -webkit-text-fill-color: transparent; color: transparent;
     }
 
-    /* Fade-in saat scroll */
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
     .reveal.visible { opacity: 1; transform: none; }
 
-    /* Kartu keahlian */
-    .skill-card {
+    .skill-card, .project-card, .repo-row {
       position: relative; border: 1px solid rgba(51, 65, 85, .7); background: rgba(17, 26, 46, .55);
       transition: transform .5s var(--ease), border-color .5s var(--ease), background .5s var(--ease), box-shadow .5s var(--ease);
     }
@@ -84,11 +77,6 @@
     }
     .skill-badge:hover { border-color: rgba(34, 211, 238, .5); color: #67e8f9; background: rgba(34, 211, 238, .07); transform: translateY(-1px); }
 
-    /* Kartu proyek */
-    .project-card {
-      position: relative; border: 1px solid rgba(51, 65, 85, .7); background: rgba(17, 26, 46, .55);
-      transition: transform .5s var(--ease), border-color .5s var(--ease), box-shadow .5s var(--ease), background .5s var(--ease);
-    }
     .project-card::before {
       content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
       background: radial-gradient(340px circle at var(--mx, 50%) var(--my, 0%), rgba(34, 211, 238, .11), transparent 62%);
@@ -99,15 +87,23 @@
     .project-card h3 { transition: color .4s var(--ease); }
     .project-card:hover h3 { color: #a5f3fc; }
 
+    .feature-list li { position: relative; padding-left: 1.1rem; font-size: .875rem; line-height: 1.6; color: #94a3b8; }
+    .feature-list li + li { margin-top: .35rem; }
+    .feature-list li::before { content: ""; position: absolute; left: 0; top: .6em; height: 5px; width: 5px; border-radius: 9999px; background: #22d3ee; opacity: .7; }
+
     .tag { border-radius: 6px; background: rgba(56, 189, 248, .08); padding: .25rem .6rem; font-size: .75rem; font-weight: 600; color: #7dd3fc; }
 
     .repo-link {
-      margin-top: 1.75rem; display: inline-flex; width: fit-content; align-items: center; gap: .5rem;
+      margin-top: 1.5rem; display: inline-flex; width: fit-content; align-items: center; gap: .5rem;
       border-radius: .75rem; border: 1px solid #334155; padding: .65rem 1rem;
       font-size: .875rem; font-weight: 700; color: #f1f5f9;
       transition: border-color .3s var(--ease), background .3s var(--ease), color .3s var(--ease), gap .3s var(--ease);
     }
     .repo-link:hover { border-color: rgba(34, 211, 238, .55); background: rgba(34, 211, 238, .08); color: #67e8f9; gap: .75rem; }
+
+    .repo-row:hover { border-color: rgba(34, 211, 238, .35); background: rgba(17, 26, 46, .85); transform: translateY(-2px); }
+    .repo-row:hover .arrow { color: #67e8f9; transform: translate(2px, -2px); }
+    .arrow { transition: color .3s var(--ease), transform .3s var(--ease); }
 
     .btn-primary { transition: background .3s var(--ease), transform .3s var(--ease), box-shadow .3s var(--ease); box-shadow: 0 10px 30px -14px rgba(34, 211, 238, .55); }
     .btn-primary:hover { background: #67e8f9; transform: translateY(-2px); box-shadow: 0 16px 36px -14px rgba(34, 211, 238, .7); }
@@ -118,14 +114,13 @@
       html { scroll-behavior: auto; }
       *, *::before, *::after { transition-duration: .01ms !important; }
       .reveal { opacity: 1; transform: none; }
-      .skill-card:hover, .project-card:hover, .btn-primary:hover, .btn-ghost:hover, .skill-badge:hover { transform: none; }
+      .skill-card:hover, .project-card:hover, .repo-row:hover, .btn-primary:hover, .btn-ghost:hover, .skill-badge:hover { transform: none; }
     }
   </style>
 </head>
 
 <body class="font-sans antialiased">
 
-  <!-- Sprite ikon GitHub (dipakai berulang) -->
   <svg width="0" height="0" class="absolute" aria-hidden="true">
     <symbol id="gh" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.34.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></symbol>
   </svg>
@@ -134,21 +129,18 @@
   <header id="site-header" class="site-header fixed inset-x-0 top-0 z-50 border-b border-white/5 backdrop-blur-xl">
     <nav class="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8" aria-label="Navigasi utama">
       <a href="#beranda" class="text-xl font-extrabold tracking-tight text-white">Irvan<span class="text-cyan-400">.</span></a>
-
       <ul class="hidden items-center gap-8 text-sm font-medium md:flex">
         <li><a href="#tentang" class="text-slate-400 transition-colors hover:text-white">Tentang</a></li>
         <li><a href="#keahlian" class="text-slate-400 transition-colors hover:text-white">Keahlian</a></li>
         <li><a href="#proyek" class="text-slate-400 transition-colors hover:text-white">Proyek</a></li>
         <li><a href="#kontak" class="rounded-full border border-cyan-400/40 px-4 py-1.5 text-cyan-300 transition hover:bg-cyan-400/10">Kontak</a></li>
       </ul>
-
       <button id="menu-btn" class="-mr-2 rounded-lg p-2 text-slate-300 transition hover:bg-white/5 md:hidden" aria-label="Buka menu" aria-expanded="false" aria-controls="mobile-menu">
         <i data-lucide="menu" class="icon-open h-6 w-6"></i>
         <i data-lucide="x" class="icon-close hidden h-6 w-6"></i>
       </button>
     </nav>
-
-    <div id="mobile-menu" class="mobile-panel border-t border-transparent md:hidden">
+    <div id="mobile-menu" class="mobile-panel md:hidden">
       <div>
         <ul class="mx-auto flex max-w-6xl flex-col px-5 pb-4 pt-2 text-base font-medium sm:px-8">
           <li><a href="#tentang" class="block border-b border-white/5 py-3.5 text-slate-300">Tentang</a></li>
@@ -161,35 +153,28 @@
   </header>
 
   <main>
-    <!-- HERO (tanpa badge, langsung ke nama) -->
+    <!-- HERO -->
     <section id="beranda" class="hero-glow relative overflow-hidden">
       <div class="grid-fade pointer-events-none absolute inset-0"></div>
       <div class="hero-fade pointer-events-none absolute inset-x-0 bottom-0 h-40"></div>
-
       <div class="relative mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-center px-5 pb-20 pt-32 sm:px-8">
         <h1 class="reveal text-[2.9rem] font-extrabold leading-[1.04] tracking-tight sm:text-7xl lg:text-8xl">
           <span class="name-gradient">Irvan Saputra</span>
         </h1>
-
         <p class="reveal mt-5 text-xl font-semibold text-slate-200 sm:text-3xl" style="transition-delay:.1s">
           Web Developer &amp; Mahasiswa Sistem Informasi
         </p>
-
         <p class="reveal mt-6 max-w-2xl text-base leading-relaxed text-slate-400 sm:text-lg" style="transition-delay:.2s">
-          Saya membangun aplikasi web yang fungsional dan terstruktur, mulai dari perancangan basis data sampai antarmuka yang nyaman dipakai.
+          Mahasiswa S1 Sistem Informasi yang membangun aplikasi web dan mobile, mengolah data, serta merancang alur sistem. Siap berkontribusi untuk posisi magang maupun kesempatan kerja.
         </p>
-
         <div class="reveal mt-10 flex flex-col gap-3 sm:flex-row" style="transition-delay:.3s">
           <a href="#proyek" class="btn-primary inline-flex items-center justify-center gap-2 rounded-xl bg-cyan-400 px-7 py-3.5 text-sm font-bold text-slate-900">
-            Lihat Proyek
-            <i data-lucide="arrow-down" class="h-4 w-4"></i>
+            Lihat Proyek <i data-lucide="arrow-down" class="h-4 w-4"></i>
           </a>
           <a href="https://github.com/irvanputra93" target="_blank" rel="noopener noreferrer" class="btn-ghost inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 px-7 py-3.5 text-sm font-bold text-slate-100">
-            <svg class="h-4 w-4" aria-hidden="true"><use href="#gh"/></svg>
-            Kunjungi GitHub
+            <svg class="h-4 w-4" aria-hidden="true"><use href="#gh"/></svg> Kunjungi GitHub
           </a>
         </div>
-
         <div class="reveal mt-14 flex flex-col gap-3 text-sm text-slate-500 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-7" style="transition-delay:.4s">
           <span class="inline-flex items-center gap-2"><i data-lucide="map-pin" class="h-4 w-4 text-cyan-400/80"></i>Yogyakarta, Indonesia</span>
           <span class="inline-flex items-center gap-2"><i data-lucide="graduation-cap" class="h-4 w-4 text-cyan-400/80"></i>S1 Sistem Informasi, UTDI</span>
@@ -203,13 +188,13 @@
         <h2 class="reveal text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Tentang Saya</h2>
         <div class="reveal space-y-5 text-base leading-relaxed text-slate-400 sm:text-lg" style="transition-delay:.1s">
           <p>
-            Saya mahasiswa S1 Sistem Informasi di Universitas Teknologi Digital Indonesia (UTDI), Yogyakarta. Saya terbiasa mengembangkan aplikasi web dengan <span class="text-slate-200">PHP, Laravel, dan MySQL</span>.
+            Saya mahasiswa S1 Sistem Informasi di Universitas Teknologi Digital Indonesia (UTDI), Yogyakarta. Saya membangun <span class="text-slate-200">aplikasi web dan mobile</span>, mengolah data, dan merancang alur sistem agar kebutuhan pengguna terjawab dengan solusi yang rapi dan terstruktur.
           </p>
           <p>
-            Selain menulis kode, saya juga menikmati tahap perancangannya: menyusun basis data lewat <span class="text-slate-200">ERD</span> dan memetakan alur sistem dengan <span class="text-slate-200">UML</span> sebelum mulai mengimplementasikan fitur.
+            Keahlian utama saya ada pada <span class="text-slate-200">PHP, Laravel, dan MySQL</span> untuk pengembangan web, ditambah <span class="text-slate-200">Python</span> untuk analisis dan pengolahan data. Saya juga terbiasa merancang basis data dan alur sistem sebelum masuk ke implementasi.
           </p>
           <p>
-            Beberapa proyek saya kerjakan bersama tim, jadi saya sudah terbiasa membagi tugas, memakai Git untuk kolaborasi, dan menyelesaikan pekerjaan sesuai tenggat. Saya terus belajar dan senang mencoba teknologi baru lewat praktik langsung.
+            Saya terbiasa bekerja sama dalam tim menggunakan <span class="text-slate-200">Git</span>, dan seluruh kode proyek saya dapat diperiksa langsung di GitHub. Saya siap berkontribusi untuk posisi magang maupun kesempatan kerja, sambil terus mengasah keahlian di lingkungan industri.
           </p>
         </div>
       </div>
@@ -219,37 +204,37 @@
     <section id="keahlian" class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
       <div class="reveal max-w-2xl">
         <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Keahlian</h2>
-        <p class="mt-4 text-slate-400">Teknologi yang saya gunakan untuk membangun dan merancang aplikasi web.</p>
+        <p class="mt-4 text-slate-400">Teknologi dan alat yang saya gunakan untuk membangun serta merancang aplikasi.</p>
       </div>
 
       <div class="mt-12 grid gap-5 md:grid-cols-3">
         <div class="skill-card reveal rounded-2xl p-7">
           <div class="flex items-center gap-3">
-            <span class="skill-icon flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-300"><i data-lucide="database" class="h-5 w-5"></i></span>
+            <span class="skill-icon flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-300"><i data-lucide="database" class="h-5 w-5"></i></span>
             <h3 class="text-lg font-bold text-white">Backend &amp; Database</h3>
           </div>
           <div class="mt-6 flex flex-wrap gap-2">
-            <span class="skill-badge">PHP</span><span class="skill-badge">Laravel</span><span class="skill-badge">MySQL</span><span class="skill-badge">Firebase</span>
+            <span class="skill-badge">PHP</span><span class="skill-badge">Laravel</span><span class="skill-badge">MySQL</span><span class="skill-badge">Firebase</span><span class="skill-badge">NoSQL</span>
           </div>
         </div>
 
         <div class="skill-card reveal rounded-2xl p-7" style="transition-delay:.1s">
           <div class="flex items-center gap-3">
-            <span class="skill-icon flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-300"><i data-lucide="layout-dashboard" class="h-5 w-5"></i></span>
-            <h3 class="text-lg font-bold text-white">Frontend</h3>
+            <span class="skill-icon flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-300"><i data-lucide="layout-dashboard" class="h-5 w-5"></i></span>
+            <h3 class="text-lg font-bold text-white">Frontend &amp; Mobile</h3>
           </div>
           <div class="mt-6 flex flex-wrap gap-2">
-            <span class="skill-badge">HTML5</span><span class="skill-badge">CSS3</span><span class="skill-badge">JavaScript</span><span class="skill-badge">Bootstrap</span><span class="skill-badge">Tailwind CSS</span>
+            <span class="skill-badge">HTML5</span><span class="skill-badge">CSS3</span><span class="skill-badge">JavaScript</span><span class="skill-badge">Bootstrap</span><span class="skill-badge">Tailwind CSS</span><span class="skill-badge">Flutter</span>
           </div>
         </div>
 
         <div class="skill-card reveal rounded-2xl p-7" style="transition-delay:.2s">
           <div class="flex items-center gap-3">
-            <span class="skill-icon flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-300"><i data-lucide="wrench" class="h-5 w-5"></i></span>
-            <h3 class="text-lg font-bold text-white">Tools &amp; Analisis</h3>
+            <span class="skill-icon flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-300"><i data-lucide="wrench" class="h-5 w-5"></i></span>
+            <h3 class="text-lg font-bold text-white">Analisis, Data &amp; Tools</h3>
           </div>
           <div class="mt-6 flex flex-wrap gap-2">
-            <span class="skill-badge">Git &amp; GitHub</span><span class="skill-badge">VS Code</span><span class="skill-badge">Figma</span><span class="skill-badge">Python</span><span class="skill-badge">Draw.io</span>
+            <span class="skill-badge">Analisis Sistem Informasi</span><span class="skill-badge">Python</span><span class="skill-badge">Tableau</span><span class="skill-badge">Java</span><span class="skill-badge">Jaringan Komputer</span><span class="skill-badge">Git &amp; GitHub</span><span class="skill-badge">VS Code</span><span class="skill-badge">XAMPP</span><span class="skill-badge">Figma</span><span class="skill-badge">Draw.io</span>
           </div>
         </div>
       </div>
@@ -258,71 +243,87 @@
     <!-- PROYEK -->
     <section id="proyek" class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
       <div class="reveal max-w-2xl">
-        <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Proyek Pilihan</h2>
-        <p class="mt-4 text-slate-400">Empat proyek yang menunjukkan cara saya bekerja, baik secara mandiri maupun dalam tim.</p>
+        <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Proyek Unggulan</h2>
+        <p class="mt-4 text-slate-400">Tiga proyek yang sudah selesai. Kode lengkapnya bisa dilihat di GitHub.</p>
       </div>
 
-      <div class="mt-12 grid gap-6 md:grid-cols-2">
+      <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 
         <article class="project-card reveal flex flex-col rounded-2xl p-6 sm:p-7">
           <div class="flex items-start justify-between gap-4">
-            <h3 class="text-xl font-bold text-white">RiskiMobility</h3>
-            <span class="shrink-0 rounded-full bg-slate-800 px-3 py-1 text-xs font-semibold text-slate-300">Laravel</span>
+            <h3 class="text-xl font-bold text-white">InvenTrack</h3>
+            <span class="shrink-0 rounded-full bg-slate-800 px-3 py-1 text-xs font-semibold text-slate-300">PHP &amp; MySQL</span>
           </div>
-          <p class="mt-4 flex-1 leading-relaxed text-slate-400">Aplikasi web manajemen dan rental berbasis Laravel, Blade, dan MySQL.</p>
-          <div class="mt-6 flex flex-wrap gap-2">
-            <span class="tag">Laravel</span><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Blade</span>
-          </div>
-          <a href="https://github.com/irvanputra93/riskimobility-laravel" target="_blank" rel="noopener noreferrer" class="repo-link">
-            <svg class="h-4 w-4" aria-hidden="true"><use href="#gh"/></svg>
-            Lihat Kode di GitHub
+          <p class="mt-4 leading-relaxed text-slate-400">Sistem informasi persediaan barang dengan dashboard admin untuk memantau kondisi stok.</p>
+          <ul class="feature-list mt-5 flex-1">
+            <li>Jumlah barang aktif</li>
+            <li>Permintaan yang menunggu persetujuan</li>
+            <li>Barang keluar harian</li>
+            <li>Peringatan stok menipis</li>
+            <li>Pergerakan stok</li>
+          </ul>
+          <div class="mt-6 flex flex-wrap gap-2"><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Dashboard Admin</span></div>
+          <a href="https://github.com/irvanputra93/inventrack" target="_blank" rel="noopener noreferrer" class="repo-link">
+            <svg class="h-4 w-4" aria-hidden="true"><use href="#gh"/></svg> Lihat Kode di GitHub
           </a>
         </article>
 
         <article class="project-card reveal flex flex-col rounded-2xl p-6 sm:p-7" style="transition-delay:.08s">
           <div class="flex items-start justify-between gap-4">
-            <h3 class="text-xl font-bold text-white">Trash to Cash</h3>
-            <span class="shrink-0 rounded-full bg-slate-800 px-3 py-1 text-xs font-semibold text-slate-300">Proyek Tim</span>
+            <h3 class="text-xl font-bold text-white">MMG Guyup Rukun</h3>
+            <span class="shrink-0 rounded-full bg-slate-800 px-3 py-1 text-xs font-semibold text-slate-300">PHP &amp; MySQL</span>
           </div>
-          <p class="mt-4 flex-1 leading-relaxed text-slate-400">Aplikasi web hasil kerja tim untuk pengelolaan dan penukaran sampah bernilai ekonomis.</p>
-          <div class="mt-6 flex flex-wrap gap-2">
-            <span class="tag">Web App</span><span class="tag">PHP</span><span class="tag">CSS</span><span class="tag">Kolaborasi Tim</span>
-          </div>
-          <a href="https://github.com/irvanputra93/Trash-to-Cash" target="_blank" rel="noopener noreferrer" class="repo-link">
-            <svg class="h-4 w-4" aria-hidden="true"><use href="#gh"/></svg>
-            Lihat Kode di GitHub
+          <p class="mt-4 leading-relaxed text-slate-400">Sistem informasi manajemen organisasi untuk Karang Taruna Muda Mudi Gunting.</p>
+          <ul class="feature-list mt-5 flex-1">
+            <li>Pengelolaan kas: pemasukan, pengeluaran, dan grafik 6 bulan</li>
+            <li>Data anggota aktif</li>
+            <li>Inventaris aset</li>
+            <li>Agenda kegiatan</li>
+          </ul>
+          <div class="mt-6 flex flex-wrap gap-2"><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Sistem Informasi</span></div>
+          <a href="https://github.com/irvanputra93/mmg-guyup-rukun" target="_blank" rel="noopener noreferrer" class="repo-link">
+            <svg class="h-4 w-4" aria-hidden="true"><use href="#gh"/></svg> Lihat Kode di GitHub
           </a>
         </article>
 
-        <article class="project-card reveal flex flex-col rounded-2xl p-6 sm:p-7">
+        <article class="project-card reveal flex flex-col rounded-2xl p-6 sm:p-7 md:col-span-2 lg:col-span-1" style="transition-delay:.16s">
           <div class="flex items-start justify-between gap-4">
-            <h3 class="text-xl font-bold text-white">Digital Library Hub</h3>
-            <span class="shrink-0 rounded-full bg-slate-800 px-3 py-1 text-xs font-semibold text-slate-300">Proyek Tim</span>
+            <h3 class="text-xl font-bold text-white">Pemetaan Profil Risiko Bitcoin</h3>
+            <span class="shrink-0 rounded-full bg-slate-800 px-3 py-1 text-xs font-semibold text-slate-300">Python</span>
           </div>
-          <p class="mt-4 flex-1 leading-relaxed text-slate-400">Sistem informasi perpustakaan digital berbasis web yang dikembangkan secara kolaboratif.</p>
-          <div class="mt-6 flex flex-wrap gap-2">
-            <span class="tag">Web App</span><span class="tag">HTML/CSS</span><span class="tag">Kolaborasi Tim</span>
-          </div>
-          <a href="https://github.com/irvanputra93/Digital-Library-Hub" target="_blank" rel="noopener noreferrer" class="repo-link">
-            <svg class="h-4 w-4" aria-hidden="true"><use href="#gh"/></svg>
-            Lihat Kode di GitHub
+          <p class="mt-4 leading-relaxed text-slate-400">Analisis eksplorasi data (EDA) dan klasterisasi profil risiko investasi dari data historis Bitcoin dengan K-Means Clustering, lengkap dengan laporan.</p>
+          <ul class="feature-list mt-5 flex-1">
+            <li>K-Means dengan K = 3</li>
+            <li>Fitur: Close dan Daily_Volatility</li>
+            <li>Silhouette Score 0,6340</li>
+          </ul>
+          <div class="mt-6 flex flex-wrap gap-2"><span class="tag">Python</span><span class="tag">Jupyter Notebook</span><span class="tag">K-Means</span><span class="tag">Data Mining</span></div>
+          <a href="https://github.com/irvanputra93/data-mining-bitcoin-kmeans" target="_blank" rel="noopener noreferrer" class="repo-link">
+            <svg class="h-4 w-4" aria-hidden="true"><use href="#gh"/></svg> Lihat Kode di GitHub
           </a>
         </article>
+      </div>
 
-        <article class="project-card reveal flex flex-col rounded-2xl p-6 sm:p-7" style="transition-delay:.08s">
-          <div class="flex items-start justify-between gap-4">
-            <h3 class="text-xl font-bold text-white">Web Profil Pribadi</h3>
-            <span class="shrink-0 rounded-full bg-slate-800 px-3 py-1 text-xs font-semibold text-slate-300">UI &amp; PHP</span>
-          </div>
-          <p class="mt-4 flex-1 leading-relaxed text-slate-400">Prototipe antarmuka website profil pribadi beserta kerangka halaman admin menggunakan struktur dasar PHP.</p>
-          <div class="mt-6 flex flex-wrap gap-2">
-            <span class="tag">PHP</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">UI Prototype</span>
-          </div>
-          <a href="https://github.com/irvanputra93/web-profil-dinamis-php" target="_blank" rel="noopener noreferrer" class="repo-link">
-            <svg class="h-4 w-4" aria-hidden="true"><use href="#gh"/></svg>
-            Lihat Kode di GitHub
+      <!-- Repository lain (sekunder) -->
+      <div class="reveal mt-16">
+        <h3 class="text-lg font-bold text-white">Repository Lainnya</h3>
+        <p class="mt-2 text-sm text-slate-500">Proyek sebelumnya, ditampilkan sebagai pelengkap.</p>
+        <div class="mt-5 grid gap-4 md:grid-cols-2">
+          <a href="https://github.com/irvanputra93/riskimobility-laravel" target="_blank" rel="noopener noreferrer" class="repo-row flex items-start justify-between gap-4 rounded-xl p-5">
+            <div>
+              <p class="font-bold text-white">RiskiMobility</p>
+              <p class="mt-1.5 text-sm leading-relaxed text-slate-400">Aplikasi web manajemen/rental berbasis Laravel, Blade, dan MySQL.</p>
+            </div>
+            <i data-lucide="arrow-up-right" class="arrow mt-1 h-5 w-5 shrink-0 text-slate-500"></i>
           </a>
-        </article>
+          <a href="https://github.com/irvanputra93/Trash-to-Cash" target="_blank" rel="noopener noreferrer" class="repo-row flex items-start justify-between gap-4 rounded-xl p-5">
+            <div>
+              <p class="font-bold text-white">Trash to Cash <span class="ml-1 text-xs font-semibold text-slate-500">Proyek Tim</span></p>
+              <p class="mt-1.5 text-sm leading-relaxed text-slate-400">Aplikasi web hasil kerja tim untuk pengelolaan dan penukaran sampah bernilai ekonomis.</p>
+            </div>
+            <i data-lucide="arrow-up-right" class="arrow mt-1 h-5 w-5 shrink-0 text-slate-500"></i>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -332,16 +333,14 @@
         <div class="pointer-events-none absolute -top-28 left-1/2 h-60 w-[30rem] max-w-full -translate-x-1/2 rounded-full bg-cyan-400/10 blur-3xl"></div>
         <h2 class="relative text-3xl font-extrabold tracking-tight text-white sm:text-5xl">Mari terhubung</h2>
         <p class="relative mx-auto mt-5 max-w-xl text-base leading-relaxed text-slate-400 sm:text-lg">
-          Saya terbuka untuk diskusi proyek, kolaborasi, maupun peluang karier di bidang IT. Silakan hubungi saya lewat email atau lihat langsung kode saya di GitHub.
+          Saya terbuka untuk peluang magang, kesempatan kerja, diskusi proyek, dan kolaborasi di bidang IT. Silakan hubungi saya lewat email atau lihat langsung kode saya di GitHub.
         </p>
         <div class="relative mt-9 flex flex-col justify-center gap-3 sm:flex-row">
           <a href="mailto:irvansaputraaa93@gmail.com" class="btn-primary inline-flex items-center justify-center gap-2 rounded-xl bg-cyan-400 px-7 py-3.5 text-sm font-bold text-slate-900">
-            <i data-lucide="mail" class="h-4 w-4"></i>
-            Kirim Email
+            <i data-lucide="mail" class="h-4 w-4"></i> Kirim Email
           </a>
           <a href="https://github.com/irvanputra93" target="_blank" rel="noopener noreferrer" class="btn-ghost inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 px-7 py-3.5 text-sm font-bold text-slate-100">
-            <svg class="h-4 w-4" aria-hidden="true"><use href="#gh"/></svg>
-            Profil GitHub
+            <svg class="h-4 w-4" aria-hidden="true"><use href="#gh"/></svg> Profil GitHub
           </a>
         </div>
         <p class="relative mt-6 break-all text-sm text-slate-500">irvansaputraaa93@gmail.com</p>
@@ -358,13 +357,11 @@
   <script>
     if (window.lucide) { lucide.createIcons(); }
 
-    // Navbar: tambah bayangan setelah di-scroll
     const header = document.getElementById('site-header');
     const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 12);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
 
-    // Menu mobile
     const menuBtn = document.getElementById('menu-btn');
     const panel = document.getElementById('mobile-menu');
     const setMenu = (open) => {
@@ -373,7 +370,6 @@
       menuBtn.setAttribute('aria-label', open ? 'Tutup menu' : 'Buka menu');
       menuBtn.querySelector('.icon-open').classList.toggle('hidden', open);
       menuBtn.querySelector('.icon-close').classList.toggle('hidden', !open);
-      panel.classList.toggle('border-white/5', open);
     };
     menuBtn.addEventListener('click', () => setMenu(!panel.classList.contains('open')));
     panel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
@@ -381,7 +377,6 @@
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
     window.matchMedia('(min-width: 768px)').addEventListener('change', (e) => { if (e.matches) setMenu(false); });
 
-    // Fade-in saat scroll
     const items = document.querySelectorAll('.reveal');
     if ('IntersectionObserver' in window) {
       const io = new IntersectionObserver((entries) => {
@@ -394,7 +389,6 @@
       items.forEach(el => el.classList.add('visible'));
     }
 
-    // Sorotan cahaya mengikuti kursor pada kartu proyek
     document.querySelectorAll('.project-card').forEach(card => {
       card.addEventListener('mousemove', (e) => {
         const r = card.getBoundingClientRect();
